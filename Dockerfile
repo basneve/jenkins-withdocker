@@ -28,5 +28,5 @@ RUN apt-get update && \
 # -e “DOCKER_GID_ON_HOST=$(getent group docker | cut -d: -f3)”
 #
 #
-RUN groupadd -g 999 docker &amp;&amp; usermod -a -G docker jenkins 
-USER jenkins
+  groupadd -g 999 docker &amp;&amp; usermod -a -G docker jenkins 
+  USER jenkins
