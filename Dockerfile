@@ -18,5 +18,15 @@ RUN apt-get update && \
    apt-get -y install docker-ce
 #TODO the group ID for docker group on my Maipo is 999, therefore I can only run docker commands if I have same group id inside. 
 # Otherwise the socket file is not accessible. Needs environment variables.
+#ENV DOCKER_GID_ON_HOST “”
+#
+# This is not tested. Besides how to detect ifthe GID is not already taken ?
+#
+# define default command
+# CMD if [ -n “$DOCKER_GID_ON_HOST” ]; then groupadd -g $DOCKER_GID_ON_HOST docker && gpasswd -a go docker; fi;
+# When starting the container you can pass in this variable with
+# -e “DOCKER_GID_ON_HOST=$(getent group docker | cut -d: -f3)”
+#
+#
 RUN groupadd -g 999 docker &amp;&amp; usermod -a -G docker jenkins 
 USER jenkins
