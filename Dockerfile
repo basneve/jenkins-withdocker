@@ -29,5 +29,5 @@ RUN apt-get update && \
 #
 #
   groupadd -g 999 docker && \
-  usermod -a -G docker jenkins \
+  usermod -a -G docker jenkins 
   
