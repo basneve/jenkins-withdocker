@@ -15,7 +15,7 @@ RUN apt-get update && \
       $(lsb_release -cs) \
       stable" && \
    apt-get update && \
-   apt-get -y install docker-ce
+   apt-get -y install docker-ce \
 #TODO the group ID for docker group on my Maipo is 999, therefore I can only run docker commands if I have same group id inside. 
 # Otherwise the socket file is not accessible. Needs environment variables.
 #ENV DOCKER_GID_ON_HOST “”
@@ -28,5 +28,5 @@ RUN apt-get update && \
 # -e “DOCKER_GID_ON_HOST=$(getent group docker | cut -d: -f3)”
 #
 #
-  groupadd -g 999 docker &amp;&amp; usermod -a -G docker jenkins 
+  groupadd -g 999 docker &amp;&amp; usermod -a -G docker jenkins \
   USER jenkins
